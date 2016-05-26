@@ -1,4 +1,4 @@
-package org.test.test_druid.firewall;
+package org.test.test_druid.firewall.limitcounter;
 
 import java.util.concurrent.TimeUnit;
 
@@ -159,7 +159,7 @@ public class RateLimitCounter implements Cloneable, LimitCounter {
 	/**
 	 * 抛出异常
 	 */
-	public void rethrowTimeout() {
+	public void rethrow() {
 		throw new FlowLimitTimeoutException(this.name, this.upperLimit);
 	}
 

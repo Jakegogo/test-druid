@@ -3,16 +3,19 @@ package org.test.test_druid.thread;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.LinkedTransferQueue;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+import org.test.test_druid.thread.saclable.ScalableThreadPoolExecutor;
+
 // 抛出RejectedExecutionException
-public class TestCachedThreadPool2 {
+public class TestScalableThreadPool {
 
 	public static void main(String[] args) {
-		final ExecutorService executorService = new ThreadPoolExecutor(2, 4,
-				100, TimeUnit.SECONDS, new SynchronousQueue<Runnable>());
+		final ExecutorService executorService = new ScalableThreadPoolExecutor(2, 50,
+				100, TimeUnit.SECONDS, new LinkedTransferQueue<Runnable>());
 
 		for (int i = 0; i < 100; i++) {
 			final int id = i;
@@ -30,6 +33,7 @@ public class TestCachedThreadPool2 {
 				}
 			});
 		}
+		System.err.println("submit over.");
 	}
 
 }

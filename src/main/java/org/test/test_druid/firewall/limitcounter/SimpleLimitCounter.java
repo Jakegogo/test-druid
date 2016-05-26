@@ -1,4 +1,4 @@
-package org.test.test_druid.firewall;
+package org.test.test_druid.firewall.limitcounter;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -105,7 +105,7 @@ public class SimpleLimitCounter implements Cloneable, LimitCounter {
 		}
 		
 		if (curCount > this.upperLimit) {// 超出最大上限,一定抛出异常
-			rethrowTimeout();
+			rethrow();
 		} else {
 			return false;
 		}
@@ -115,7 +115,7 @@ public class SimpleLimitCounter implements Cloneable, LimitCounter {
 	/**
 	 * 抛出异常
 	 */
-	public void rethrowTimeout() {
+	public void rethrow() {
 		throw new FlowLimitOverFlowException(this.name, this.upperLimit);
 	}
 	

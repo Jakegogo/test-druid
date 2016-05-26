@@ -36,6 +36,10 @@ public class BaseDataSourceLogDto {
 	 */
 	@JSONField(ordinal = -1)
 	protected String name;
+	/**
+	 * 其他附加参数
+	 */
+	protected Object extra;
 	
 	/**
 	 * 创建实例
@@ -93,5 +97,15 @@ public class BaseDataSourceLogDto {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public Object getExtra() {
+		return extra;
+	}
+
+	public BaseDataSourceLogDto setExtra(Object extra) {
+		this.extra = extra;
+		return this;
+	}
+
 
 }

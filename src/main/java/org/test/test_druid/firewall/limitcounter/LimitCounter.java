@@ -1,4 +1,4 @@
-package org.test.test_druid.firewall;
+package org.test.test_druid.firewall.limitcounter;
 
 import java.util.concurrent.TimeUnit;
 
@@ -86,7 +86,7 @@ public interface LimitCounter extends Cloneable {
 	/**
 	 * 抛出超时异常
 	 */
-	public void rethrowTimeout();
+	public void rethrow();
 
 	/**
 	 * 克隆对象

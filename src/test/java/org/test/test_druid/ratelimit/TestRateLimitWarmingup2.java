@@ -5,8 +5,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
-import org.test.test_druid.firewall.LimitCounter;
-import org.test.test_druid.firewall.LimitCounterBuilder;
+import org.test.test_druid.firewall.limitcounter.LimitCounter;
+import org.test.test_druid.firewall.limitcounter.LimitCounterBuilder;
 import org.test.test_druid.firewall.ratelimiter.RateLimiter;
 
 public class TestRateLimitWarmingup2 {
