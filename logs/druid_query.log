@@ -1,0 +1,28 @@
+{"type":1,"connectId":10001,"enterpriseNum":0,"timestamp":1464230715996,"name":"Connect_Open"}
+{"type":4,"connectId":10001,"enterpriseNum":0,"timestamp":1464230716103,"name":"Statement_Execute","millis":30,"params":[],"sqlId":"select 1 ","statementId":"stmt-20000"}
+{"type":8,"connectId":10001,"enterpriseNum":0,"timestamp":1464230716107,"name":"ResultSet_Open","cloumnCount":-1,"rowCount":-1,"statementId":"stmt-20000"}
+{"type":9,"connectId":10001,"enterpriseNum":0,"timestamp":1464230716107,"name":"ResultSet_Close","cloumnCount":1,"rowCount":1,"statementId":"stmt-20000"}
+{"type":5,"connectId":10001,"enterpriseNum":0,"timestamp":1464230716107,"name":"Statement_Close","millis":-1,"statementId":"stmt-20000"}
+{"type":11,"connectId":10001,"enterpriseNum":0,"timestamp":1464230716310,"name":"Get_Connection","last":1464230716310}
+{"type":4,"connectId":10001,"enterpriseNum":0,"timestamp":1464230716341,"name":"Statement_Execute","millis":2,"params":[1],"sqlId":"select * from test where id>?","statementId":"pstmt-20001"}
+{"type":8,"connectId":10001,"enterpriseNum":0,"timestamp":1464230716341,"name":"ResultSet_Open","cloumnCount":-1,"rowCount":-1,"statementId":"pstmt-20001"}
+{"type":9,"connectId":10001,"enterpriseNum":0,"timestamp":1464230716341,"name":"ResultSet_Close","cloumnCount":3,"rowCount":2,"statementId":"pstmt-20001"}
+{"type":12,"connectId":10001,"enterpriseNum":0,"timestamp":1464230716341,"name":"Release_Connection","last":1464230716310}
+{"type":11,"connectId":10001,"enterpriseNum":0,"timestamp":1464230716341,"name":"Get_Connection","last":1464230716341}
+{"type":4,"connectId":10001,"enterpriseNum":0,"timestamp":1464230716341,"name":"Statement_Execute","millis":1,"params":[1],"sqlId":"select * from test where id>?","statementId":"pstmt-20001"}
+{"type":8,"connectId":10001,"enterpriseNum":0,"timestamp":1464230716341,"name":"ResultSet_Open","cloumnCount":-1,"rowCount":-1,"statementId":"pstmt-20001"}
+{"type":9,"connectId":10001,"enterpriseNum":0,"timestamp":1464230716341,"name":"ResultSet_Close","cloumnCount":3,"rowCount":2,"statementId":"pstmt-20001"}
+{"type":12,"connectId":10001,"enterpriseNum":0,"timestamp":1464230716341,"name":"Release_Connection","last":1464230716341}
+{"type":5,"connectId":10001,"enterpriseNum":0,"timestamp":1464230716341,"name":"Statement_Close","millis":-1,"statementId":"pstmt-20001"}
+{"type":2,"connectId":10001,"enterpriseNum":0,"timestamp":1464230716341,"name":"Connect_Close"}
+{"type":1,"connectId":10001,"enterpriseNum":0,"timestamp":1464232094280,"name":"Connect_Open"}
+{"type":4,"connectId":10001,"enterpriseNum":0,"timestamp":1464232094375,"name":"Statement_Execute","millis":26,"params":[],"sqlId":"select 1 ","statementId":"stmt-20000"}
+{"type":8,"connectId":10001,"enterpriseNum":0,"timestamp":1464232094391,"name":"ResultSet_Open","cloumnCount":-1,"rowCount":-1,"statementId":"stmt-20000"}
+{"type":9,"connectId":10001,"enterpriseNum":0,"timestamp":1464232094391,"name":"ResultSet_Close","cloumnCount":1,"rowCount":1,"statementId":"stmt-20000"}
+{"type":5,"connectId":10001,"enterpriseNum":0,"timestamp":1464232094407,"name":"Statement_Close","millis":-1,"statementId":"stmt-20000"}
+{"type":11,"connectId":10001,"enterpriseNum":0,"timestamp":1464232094594,"name":"Get_Connection","last":1464232094594}
+{"type":6,"connectId":10001,"enterpriseNum":0,"timestamp":1464232096658,"name":"Statement_Exception","millis":2034,"params":[],"sqlId":"{?=call testSelect()}","stackTrace":"com.microsoft.sqlserver.jdbc.SQLServerException: 查询被取消。","statementId":"cstmt-20001"}
+{"type":7,"connectId":10001,"enterpriseNum":0,"timestamp":1464232096642,"name":"StatementTimeout_Exception","mills":2000,"params":[],"sqlId":"{?=call testSelect()}","statementId":"cstmt-20001"}
+{"type":12,"connectId":10001,"enterpriseNum":0,"timestamp":1464232096671,"name":"Release_Connection","last":1464232094594}
+{"type":5,"connectId":10001,"enterpriseNum":0,"timestamp":1464232096687,"name":"Statement_Close","millis":-1,"statementId":"cstmt-20001"}
+{"type":2,"connectId":10001,"enterpriseNum":0,"timestamp":1464232096687,"name":"Connect_Close"}

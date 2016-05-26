@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%p - %C{1}.%M(%L) | %m%n" />
+		</layout>
+	</appender>
+	<appender name="druid" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="./logs/druid_query.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="INFO" />
+			<param name="LevelMax" value="INFO" />
+		</filter>
+	</appender>
+	<appender name="druid.async" class="org.apache.log4j.AsyncAppender">
+		<param name="BufferSize" value="50" />
+		<param name="Blocking" value="false" />
+		<appender-ref ref="druid" />
+	</appender>
+	<logger name="druid.sql.CustomLogger" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="druid.async" />
+	</logger>
+
+	<root>
+		<level value="DEBUG" />
+		<appender-ref ref="CONSOLE" />
+	</root>
+
+
+</log4j:configuration>
+
