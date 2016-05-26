@@ -49,7 +49,7 @@ public class SimpleFlowLimitFilter implements FlowLimitFilter {
 	public void acquireToken(Object userId, int enterpriseNum,
 			Object dataSourceId) {
 		
-		Long sn = snGenerator.incrementAndGet();
+		Long sn = this.generateSn();
 		
 		// 1.用户限流统计
 		if (!userCounter.acquire(userId)) {
@@ -103,6 +103,16 @@ public class SimpleFlowLimitFilter implements FlowLimitFilter {
 		}
 		
 		
+	}
+
+	// 生成流量编码
+	private long generateSn() {
+		long sn = snGenerator.incrementAndGet();
+		if (sn < 0 || sn >= Long.MAX_VALUE) {
+			snGenerator.set(0);
+			sn = snGenerator.incrementAndGet();
+		}
+		return sn;
 	}
 	
 	// 转换成LOG字符串
