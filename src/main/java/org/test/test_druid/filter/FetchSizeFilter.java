@@ -12,7 +12,7 @@ import com.alibaba.druid.proxy.jdbc.StatementProxy;
  * 查询单次抓取记录数 (具体要看数据库是否支持,如mysql需要其他配置才支持)
  * @author: jake
  */
-public class QueryFetchSizeFilter extends FilterEventAdapter implements EnterpriseIsolateable {
+public class FetchSizeFilter extends FilterEventAdapter implements EnterpriseIsolateable {
 	
 	/**
 	 * 抓取大小,默认为DEFAULT_QUERY_FETCH_SIZE

@@ -53,6 +53,9 @@ public class FlowLimitTable {
 	 * @return
 	 */
 	public boolean canAcquire(Object key) {
+		if (key == null) {
+			return false;
+		}
 		return getLimitCounter(key).canAcquire();
 	}
 	
@@ -63,6 +66,9 @@ public class FlowLimitTable {
 	 * @return
 	 */
 	public boolean canAcquire(Object key, long timeout, TimeUnit unit) {
+		if (key == null) {
+			return false;
+		}
 		return getLimitCounter(key).canAcquire(timeout, unit);
 	}
 
@@ -73,6 +79,9 @@ public class FlowLimitTable {
 	 * @return
 	 */
 	public boolean acquire(Object key) {
+		if (key == null) {
+			return false;
+		}
 		return getLimitCounter(key).acquire();
 	}
 	

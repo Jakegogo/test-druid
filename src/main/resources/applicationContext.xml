@@ -64,7 +64,7 @@
 	</bean>
 	
 	<!-- 限流过滤器 -->
-	<bean id="flowLimitFilter" class="org.test.test_druid.firewall.FlowLimitFilter">
+	<bean id="flowLimitFilter" class="org.test.test_druid.firewall.FlowLimitDruidFilter">
 	</bean>
 	
 	<!-- 监控输出日志配置 -->

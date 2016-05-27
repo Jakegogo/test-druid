@@ -19,7 +19,7 @@ import com.alibaba.druid.proxy.jdbc.StatementProxy;
  * 流量限制过滤器
  * @author Administrator
  */
-public class FlowLimitDruidFilter extends FilterEventAdapter implements
+public class DruidFlowLimitFilter extends FilterEventAdapter implements
 		EnterpriseIsolateable {
 
 	private Logger logger = LoggerFactory.getLogger("druid.sql.CustomLogger");
@@ -139,7 +139,7 @@ public class FlowLimitDruidFilter extends FilterEventAdapter implements
 	protected int enterpriseNum;
 	
 	
-	public FlowLimitDruidFilter() {
+	public DruidFlowLimitFilter() {
 		this.setRequestTimeout(this.requestTimeout);
 	}
 	

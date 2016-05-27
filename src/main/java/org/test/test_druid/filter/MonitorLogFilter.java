@@ -44,10 +44,10 @@ import com.alibaba.druid.proxy.jdbc.ResultSetProxy;
 import com.alibaba.druid.proxy.jdbc.StatementProxy;
 
 /**
- * 自定义日志过滤器
+ * 自定义日志监控过滤器
  * @author Administrator
  */
-public class CustomLogFilter extends FilterEventAdapter implements EnterpriseIsolateable {
+public class MonitorLogFilter extends FilterEventAdapter implements EnterpriseIsolateable {
 
 	private Logger customLogger = LoggerFactory.getLogger("druid.sql.CustomLogger");
 
@@ -65,9 +65,9 @@ public class CustomLogFilter extends FilterEventAdapter implements EnterpriseIso
 	protected DataSourceProxy dataSource;
 	
 	@Autowired
-	private transient QueryFetchSizeFilter queryFetchSizeFilter;
+	private transient FetchSizeFilter queryFetchSizeFilter;
 
-	protected CustomLogFilter() {
+	protected MonitorLogFilter() {
 		configFromProperties(System.getProperties());
 	}
 	
@@ -75,7 +75,7 @@ public class CustomLogFilter extends FilterEventAdapter implements EnterpriseIso
 	 * 构造方法
 	 * @param queryFetchSizeFilter QueryFetchSizeFilter 依赖QueryFetchSizeFilter
 	 */
-	public CustomLogFilter(QueryFetchSizeFilter queryFetchSizeFilter) {
+	public MonitorLogFilter(FetchSizeFilter queryFetchSizeFilter) {
 		this();
 		this.queryFetchSizeFilter = queryFetchSizeFilter;
 	}
@@ -464,13 +464,13 @@ public class CustomLogFilter extends FilterEventAdapter implements EnterpriseIso
 
 	@Override
 	public boolean isWrapperFor(Class<?> iface) {
-		return iface == this.getClass() || iface == CustomLogFilter.class;
+		return iface == this.getClass() || iface == MonitorLogFilter.class;
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public <T> T unwrap(Class<T> iface) {
-		if (iface == this.getClass() || iface == CustomLogFilter.class) {
+		if (iface == this.getClass() || iface == MonitorLogFilter.class) {
 			return (T) this;
 		}
 		return null;
