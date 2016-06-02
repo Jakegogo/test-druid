@@ -44,7 +44,7 @@ public interface DataSourceConstants {
 	/**
 	 * 默认超时时间,单位秒 注意不要设置太小
 	 */
-	int QUERY_TIMEOUT_THRESHOLD_SECOND = 2;
+	int QUERY_TIMEOUT_THRESHOLD_SECOND = 15;
 	
 	/**
 	 * 默认执行超时处理定时器线程池大小

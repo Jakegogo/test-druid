@@ -52,6 +52,9 @@ public class DruidFlowLimitFilter extends FilterEventAdapter implements
 	private void acquireToken(StatementProxy statement) {
 		
 		Object userId = statement.getAttribute(DataSourceConstants.UserID_KEY);
+		if (userId == null) {
+			userId = "1001";
+		}
 		
 		// 1.用户限流统计
 		if (!userCounter.acquire(userId)) {

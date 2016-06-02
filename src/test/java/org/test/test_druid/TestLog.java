@@ -15,6 +15,7 @@ public class TestLog {
 		customLogger.info("dsdddddddddd");
 		customLogger.info("dsdddddddddd");
 		customLogger.info("dsdddddddddd");
+		
 	}
 	
 }

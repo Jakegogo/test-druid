@@ -23,9 +23,9 @@ public class TestLongQuery {
 
 	@Test
 	public void testQuery() {
-		get("select top 2000 * from sfa_t_TCirOrderDetail where ProductName = '赠品2' order by OrderCount desc");
+		get("select top 90000 * from (select top 100000 * from sfa_t_TCirOrderDetail where exists(select top 10000 OrderId from sfa_t_TCirOrder where sfa_t_TCirOrder.Amount = sfa_t_TCirOrderDetail.GiveNumer order by sfa_t_TCirOrder.OrderCode) order by OrderCount desc) b");
 	}
-
+	
 	public void get(String sql) {
 
 		Connection conn = null;
