@@ -29,12 +29,12 @@ public interface DataSourceConstants {
 	/**
 	 * 默认限流警告阀值(日志输出阀值)
 	 */
-	int DEFAULT_FLOW_LIMIT = 800;
+	int DEFAULT_FLOW_LIMIT = 80;
 	
 	/**
 	 * 默认限流值
 	 */
-	int DEfAULT_UPPER_LIMIT = 2000;
+	int DEfAULT_UPPER_LIMIT = 200;
 	
 	/**
 	 * 限流 梯度缓冲时长(毫秒)

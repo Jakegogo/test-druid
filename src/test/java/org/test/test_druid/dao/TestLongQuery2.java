@@ -23,7 +23,19 @@ public class TestLongQuery2 {
 
 	@Test
 	public void testQuery() {
-		get("select top 2000 * from sfa_t_TCirOrderDetail where ProductName = '赠品2' order by OrderCount desc");
+		long t1 = System.currentTimeMillis();
+		for (int i = 0;i < 2000;i++) {
+			System.out.println(i);
+			get("SELECT s.storeid,s.guid,s.storecode,s.storename,s.address,s.saleareaid,d.departmentname,d.codepath,s.storetype,sd.DicKey,us.usernumber,us.username,us.mobilephone,COUNT(DISTINCT exd.DisplayID)DisplayCun,SUM(CAST(exd.amountmoney AS FLOAT))amountmoney FROM sfa_t_store s " +
+			" INNER JOIN  sfa_t_ExDisplay exd ON exd.Guid=s.Guid" +
+			" LEFT JOIN dbo.com_t_userinfo us ON us.usernumber = exd.UserNumber" +
+			" LEFT JOIN dbo.sfa_t_TSysDictionary sd ON sd.RowID = s.storetype" +
+			" LEFT JOIN dbo.com_t_department d ON d.departmentid = s.saleareaid" +
+			" INNER JOIN sfa_t_tMonDisplayPlan dp ON dp.Guid=exd.Guid" +
+			" WHERE DATEDIFF(d,exd.DisplayEndTime,GETDATE())<=0 AND DATEDIFF(d,PlanTime,GETDATE())<=0" +
+			" GROUP BY s.storeid,s.guid,s.storecode,s.storename,s.address,s.saleareaid,d.departmentname,d.codepath,s.storetype,sd.DicKey,us.usernumber,us.username,us.mobilephone");
+		}
+		System.out.println("used : " + (System.currentTimeMillis() - t1));
 	}
 
 	public void get(String sql) {
@@ -32,10 +44,6 @@ public class TestLongQuery2 {
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 		try {
-			System.out.println("sleeping");
-			Thread.sleep(5000);
-			// 此时断网
-			
 			conn = config.getConnection();
 
 			pst = conn.prepareStatement(sql);
@@ -45,17 +53,10 @@ public class TestLongQuery2 {
 			while(rs.next()) {
 				System.out.println(rs.getObject(1));
 			}
-			
 		} catch (Exception e) {
 			handleException(conn, e); 
 		} finally {
 			handleClose(conn, pst, rs);
-			try {
-				Thread.sleep(5000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 		}
 		  
 	}

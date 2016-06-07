@@ -51,20 +51,20 @@
 <!-- 	</bean> -->
 
 	<!-- query日志配置 -->
-	<bean id="logFilter" class="org.test.test_druid.filter.CustomLogFilter"></bean>
+	<bean id="logFilter" class="org.test.test_druid.filter.MonitorLogFilter"></bean>
 
 	<!-- 超时配置 -->
 	<bean id="timeoutFilter" class="org.test.test_druid.filter.SqlTimeOutFilter">
-		<property name="timeoutThreshold" value="2" />
+		<property name="timeoutThreshold" value="20" />
 	</bean>
 
 	<!-- 单次抓取行数量 -->
-	<bean id="queryFetchSizeFilter" class="org.test.test_druid.filter.QueryFetchSizeFilter">
+	<bean id="queryFetchSizeFilter" class="org.test.test_druid.filter.FetchSizeFilter">
 		<property name="queryFetchSize" value="500" />
 	</bean>
 	
 	<!-- 限流过滤器 -->
-	<bean id="flowLimitFilter" class="org.test.test_druid.firewall.FlowLimitDruidFilter">
+	<bean id="flowLimitFilter" class="org.test.test_druid.firewall.DruidFlowLimitFilter">
 	</bean>
 	
 	<!-- 监控输出日志配置 -->

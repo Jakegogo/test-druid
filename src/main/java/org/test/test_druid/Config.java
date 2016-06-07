@@ -71,7 +71,6 @@ public class Config {
 	public final void close(ResultSet rs, Statement st, Connection conn) {
 		if (rs != null) {try {rs.close();} catch (SQLException e) {e.printStackTrace();}}
 		if (st != null) {try {st.close();} catch (SQLException e) {e.printStackTrace();}}
-
 		if (threadLocal.get() == null) {	// in transaction if conn in threadlocal
 			if (conn != null) {try {conn.close();}
 			catch (SQLException e) {throw new IllegalStateException(e);}}
